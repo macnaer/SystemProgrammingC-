@@ -27,7 +27,7 @@ internal class Program
 
         var processInfo = new ProcessStartInfo
         {
-            FileName = "C://Program Files//Mozilla Firefox//firefox.exe",
+            FileName = "C://Program Files//Google//Chrome//Application//chrome.exe",
             Arguments = "ukr.net",
             WindowStyle = ProcessWindowStyle.Maximized,
 
