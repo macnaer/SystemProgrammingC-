@@ -36,6 +36,16 @@
         }
     }
     //=====================Example3=====================//
+    //=====================Example4=====================//
+    static void Method(object str)
+    {
+        string text = (string)str;
+        for (int i = 0; i < 10000; i++)
+        {
+            Console.WriteLine($"{text} : {i}");
+        }
+    }
+    //=====================Example4=====================//
 
     static void Main(string[] args)
     {
@@ -61,7 +71,7 @@
         //SecondTread();
         //=====================Example2=====================//
         //=====================Example3=====================//
-        Thread mainThread = Thread.CurrentThread;
+        /*Thread mainThread = Thread.CurrentThread;
 
         mainThread.Name = "Main Thread";
 
@@ -73,10 +83,19 @@
         {
             Console.WriteLine(new string(' ', 15) + mainThread.Name + i);
             Thread.Sleep(1000);
-        }
-
-
+        }*/
         //=====================Example3=====================//
+        //=====================Example4=====================//
+
+        ParameterizedThreadStart ts = new ParameterizedThreadStart(Method);
+        Thread thread1 = new Thread(ts);
+        Thread thread2 = new Thread(ts);
+        thread1.Priority = ThreadPriority.Highest;
+        thread2.Priority = ThreadPriority.Lowest;
+        thread1.Start("First => ");
+        thread2.Start("Second => ");
+
+        //=====================Example4=====================//
 
 
 
